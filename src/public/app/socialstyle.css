@@ -1,0 +1,11 @@
+#footer{
+    background-color: var(--light);
+    padding : 10px;
+    position: sticky;
+    bottom : 0px;
+}
+#navbar{
+    position: sticky;
+    top : 0px;
+    z-index: 1;
+}
