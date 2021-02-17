@@ -11,13 +11,20 @@ async function createNewPost(userId,title,body){
 
 
 async function findAllPost(query){
+    let whereClause = {}
+    if(query.userId){
+        whereClause.userId = query.userId
+    }
     const post = await Posts.findAll({
+        where : whereClause,
         include : [Users]
     });
     return post;
 }
 
-
+// async function task(){
+//     console.log(await findAllPost({}))
+// }
 // async function task(){
 //     // console.log(await createNewPost(3,'Sample title1','This is sample post by 3'));
 //     // console.log(await createNewPost(4,'Sample title2','This is sample post by 4'));
@@ -32,7 +39,7 @@ async function findAllPost(query){
 //     }
 // }
 
-// task();
+//task();
 
 module.exports = {
     createNewPost,

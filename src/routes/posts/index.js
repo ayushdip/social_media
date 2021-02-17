@@ -18,7 +18,12 @@ route.post('/',async(req,res)=>{
 
 })
 route.get('/',async(req,res)=>{
-    const posts = await findAllPost();
+    let query = {}
+    if(req.query){
+        query = req.query
+    } 
+    console.log(req.query);
+    const posts = await findAllPost(query);
     res.status(200).send(posts);
 })
 
